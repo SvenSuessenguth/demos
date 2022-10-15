@@ -8,7 +8,7 @@ import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit5.ArquillianExtension;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.spec.WebArchive;
+import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
@@ -17,8 +17,8 @@ public class AgifyServiceTest {
 
   @Deployment()
   @SuppressWarnings("unused")
-  public static WebArchive createDeployment() {
-    return ShrinkWrap.create(WebArchive.class, "mp-rest-client.war")
+  public static JavaArchive createDeployment() {
+    return ShrinkWrap.create(JavaArchive.class, "mp-rest-client.jar")
         .addClass(AgifyService.class)
         .addClass(AgifyClient.class)
         .addClass(AgifyApplication.class)
@@ -33,7 +33,7 @@ public class AgifyServiceTest {
   private AgifyService agifyService;
 
   @Test
-  public void agifyClient() {
+  void agifyClient() {
     try (Response agifyResponse = agifyClient.agify("Sven")) {
       String entity = agifyResponse.readEntity(String.class);
       assertNotNull(entity);
@@ -41,7 +41,7 @@ public class AgifyServiceTest {
   }
 
   @Test
-  public void agifyService() {
+  void agifyService() {
     Integer age = agifyService.agify("Sabine");
     assertNotNull(age);
   }
