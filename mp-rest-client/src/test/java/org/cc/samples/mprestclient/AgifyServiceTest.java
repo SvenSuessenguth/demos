@@ -1,5 +1,8 @@
 package org.cc.samples.mprestclient;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+
 import jakarta.inject.Inject;
 import jakarta.ws.rs.core.Response;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
@@ -15,12 +18,11 @@ public class AgifyServiceTest {
 
   @Deployment()
   public static WebArchive createDeployment() {
-    final WebArchive webArchive = ShrinkWrap.create(WebArchive.class, "mp-rest-client.war")
+    return ShrinkWrap.create(WebArchive.class, "mp-rest-client.war")
         .addClass(AgifyService.class)
         .addClass(AgifyClient.class)
         .addClass(AgifyApplication.class)
         .addAsResource("META-INF/microprofile-config.properties");
-    return webArchive;
   }
 
   @Inject
@@ -31,12 +33,16 @@ public class AgifyServiceTest {
   private AgifyService agifyService;
 
   @Test
-  public void agify() {
-    Response agifyResponse = agifyClient.agify("Sven");
-    System.out.println("#########################################################");
-    System.out.println(agifyResponse.readEntity(String.class));
-    System.out.println("#########################################################");
-    System.out.println(agifyService.agify("Sabine"));
-    System.out.println("#########################################################");
+  public void agifyClient() {
+    try (Response agifyResponse = agifyClient.agify("Sven")) {
+      String entity = agifyResponse.readEntity(String.class);
+      assertFalse(entity.isEmpty());
+    }
+  }
+
+  @Test
+  public void agifyService() {
+    Integer age = agifyService.agify("Sabine");
+    assertNotNull(age);
   }
 }
