@@ -35,14 +35,14 @@ public class AgifyServiceTest {
   @Test
   void agifyClient() {
     try (Response agifyResponse = agifyClient.agify("Sven")) {
-      String entity = agifyResponse.readEntity(String.class);
+      var entity = agifyResponse.readEntity(String.class);
       assertNotNull(entity);
     }
   }
 
   @Test
   void agifyService() {
-    Integer age = agifyService.agify("Sabine");
+    var age = agifyService.agify("Sabine");
     assertNotNull(age);
   }
 }
