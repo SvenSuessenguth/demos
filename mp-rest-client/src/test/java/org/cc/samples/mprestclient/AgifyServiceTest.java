@@ -37,6 +37,7 @@ public class AgifyServiceTest {
     try (Response agifyResponse = agifyClient.agify("Sven")) {
       var entity = agifyResponse.readEntity(String.class);
       assertNotNull(entity);
+      assertNotNull(entity);
     }
   }
 
