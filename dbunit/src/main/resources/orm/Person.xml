@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings
+  xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence/orm https://jakarta.ee/xml/ns/persistence/orm/orm_3_1.xsd"
+  version="3.1">
+
+  <persistence-unit-metadata>
+    <xml-mapping-metadata-complete/>
+  </persistence-unit-metadata>
+
+  <named-query name="Person.findAll">
+    <query>SELECT p FROM Person p</query>
+  </named-query>
+  <named-query name="Person.findByGender">
+    <query>SELECT p FROM Person p WHERE p.gender = :gender</query>
+  </named-query>
+
+  <entity class="org.cc.testing.dbunit.model.Person" access="FIELD">
+    <table name="_PERSONS"/>
+    <attributes>
+      <basic name="firstName">
+        <column name="_FIRST_NAME"/>
+      </basic>
+      <basic name="lastName">
+        <column name="_LAST_NAME"/>
+      </basic>
+      <basic name="dateOfBirth">
+        <column name="_DATE_OF_BIRTH"/>
+      </basic>
+      <basic name="gender">
+        <column name="_GENDER" nullable="false"/>
+        <enumerated>STRING</enumerated>
+      </basic>
+    </attributes>
+  </entity>
+
+</entity-mappings>

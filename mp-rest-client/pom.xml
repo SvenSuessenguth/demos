@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <parent>
+    <groupId>org.cc.demos</groupId>
+    <artifactId>demos</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>mp-rest-client</artifactId>
+  <packaging>jar</packaging>
+
+  <properties>
+    <cxf.version>4.0.0</cxf.version>
+    <smallrye-config.version>3.2.1</smallrye-config.version>
+    <yasson.version>3.0.3</yasson.version>
+  </properties>
+
+  <dependencies>
+    <!--
+     | Dependencies, um mp-rest-Client verwenden zu können. Das alleine unterstützt nur eine 'normale'
+     | Response ohne ein Mapping von/auf Json.
+     | Hierfür ist auch die Datei org.eclipse.microprofile.rest.client.spi.RestClientBuilderResolver erforderlich.
+     +-->
+    <dependency>
+      <groupId>org.apache.cxf</groupId>
+      <artifactId>cxf-rt-rs-client</artifactId>
+      <version>${cxf.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.cxf</groupId>
+      <artifactId>cxf-rt-rs-mp-client</artifactId>
+      <version>${cxf.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!--
+     | JSon-Binding
+     +-->
+    <dependency>
+      <groupId>org.eclipse</groupId>
+      <artifactId>yasson</artifactId>
+      <version>${yasson.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!--
+     | MP-Config
+     +-->
+    <dependency>
+      <groupId>io.smallrye.config</groupId>
+      <artifactId>smallrye-config</artifactId>
+      <version>${smallrye-config.version}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+</project>
