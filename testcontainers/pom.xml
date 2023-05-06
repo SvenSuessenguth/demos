@@ -61,7 +61,7 @@
           <serverName>testcontainers</serverName>
           <runtimeArtifact>
             <groupId>io.openliberty</groupId>
-            <artifactId>openliberty-runtime</artifactId>
+            <artifactId>openliberty-jakartaee10</artifactId>
             <version>${openliberty-runtime.version}</version>
             <type>zip</type>
           </runtimeArtifact>
