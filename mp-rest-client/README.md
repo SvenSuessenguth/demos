@@ -1,1 +1,1 @@
-Calling a rest-Service with Microprofile Restclient via an interface.
+Calling a rest-Service with Microprofile Restclient via an interface inside a unit-test.

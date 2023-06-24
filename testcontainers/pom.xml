@@ -15,9 +15,9 @@
   <packaging>war</packaging>
 
   <properties>
-    <openliberty-runtime.version>23.0.0.3</openliberty-runtime.version>
+    <openliberty-runtime.version>23.0.0.5</openliberty-runtime.version>
     <slf.version>2.0.7</slf.version>
-    <testcontainers.version>1.18.0</testcontainers.version>
+    <testcontainers.version>1.18.3</testcontainers.version>
   </properties>
 
   <dependencies>

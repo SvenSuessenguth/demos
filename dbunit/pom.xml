@@ -16,10 +16,10 @@
 
   <properties>
     <dbunit.version>2.7.3</dbunit.version>
-    <org.eclipse.persistence.jpa.version>4.0.1</org.eclipse.persistence.jpa.version>
+    <org.eclipse.persistence.jpa.version>4.0.2</org.eclipse.persistence.jpa.version>
     <postgresql.version>42.6.0</postgresql.version>
     <slf.version>2.0.7</slf.version>
-    <testcontainers.version>1.18.0</testcontainers.version>
+    <testcontainers.version>1.18.3</testcontainers.version>
   </properties>
 
   <dependencies>
