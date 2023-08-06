@@ -16,7 +16,7 @@
 
   <properties>
     <cxf.version>4.0.2</cxf.version>
-    <smallrye-config.version>3.3.0</smallrye-config.version>
+    <smallrye-config.version>3.3.3</smallrye-config.version>
     <yasson.version>3.0.3</yasson.version>
   </properties>
 
